@@ -3,9 +3,18 @@
     import { page } from "$app/stores";
     import { onMount } from "svelte";
 
+    export async function load({ params }) {
+        return {
+            props: {
+                channel: params.channel,
+            },
+        };
+    }
+
+    export let channel;
+
     let Clicked = false;
     let count = 0;
-    let channel = "defaultChannel";
     let bgColor = "#89CFF0";
     let textColor = "white";
 
