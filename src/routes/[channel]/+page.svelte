@@ -3,15 +3,7 @@
     import { page } from "$app/stores";
     import { onMount } from "svelte";
 
-    export async function load({ params }) {
-        return {
-            props: {
-                channel: params.channel,
-            },
-        };
-    }
-
-    export let channel;
+    let channel = JSON.stringify($page, null, 2);
 
     let Clicked = false;
     let count = 0;
