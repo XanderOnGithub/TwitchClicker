@@ -7,7 +7,7 @@
     let channel = get(page).params.slug;
     let Clicked = false;
     let count = 0;
-    let bgColor = "#89CFF0";
+    let bgColor = "black";
     let textColor = "white";
 
     // Initialize the Twitch client
@@ -58,8 +58,6 @@
         align-items: center;
         width: 300px;
         height: 300px;
-        background-color: #1a1a1a;
-        border-radius: 20px;
     }
 
     .circle {
@@ -69,6 +67,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
     }
 
     .text {
@@ -76,6 +75,7 @@
             "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         font-size: 50px;
         text-align: center;
+        text-shadow: 0 0 5px white;
     }
 
     @keyframes clickAnimation {
