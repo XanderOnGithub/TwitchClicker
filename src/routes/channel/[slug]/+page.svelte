@@ -35,7 +35,7 @@
         Clicked = false;
         setTimeout(() => {
             Clicked = true;
-        }, 200); // Changed to 200ms for better visibility
+        }, 100); // Changed to 200ms for better visibility
     }
 </script>
 
@@ -83,7 +83,7 @@
             transform: scale(1);
         }
         50% {
-            transform: scale(1.5);
+            transform: scale(1.25);
         }
         100% {
             transform: scale(1);
@@ -91,6 +91,6 @@
     }
 
     .active {
-        animation: clickAnimation 0.2s ease-in-out;
+        animation: clickAnimation 0.1s ease-in-out;
     }
 </style>
