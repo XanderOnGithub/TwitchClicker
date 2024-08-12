@@ -2,9 +2,9 @@
     import tmi from "tmi.js";
     import { page } from "$app/stores";
     import { onMount } from "svelte";
+    import { get } from "svelte/store";
 
-    let channel = JSON.stringify($page, null, 2);
-
+    let channel = get(page).params.slug;
     let Clicked = false;
     let count = 0;
     let bgColor = "#89CFF0";
@@ -17,13 +17,18 @@
 
     // Connect to the Twitch channel
     onMount(() => {
-        client.connect();
+        client.connect().catch(console.error);
     });
 
     // Listen for messages in the Twitch chat
-    client.on("message", (channel, tags, message) => {
+    client.on("message", () => {
         handleClick();
     });
+
+    // Error handling for connection issues
+    client.on("connected", () => {});
+    client.on("disconnected", () => {});
+    client.on("error", () => {});
 
     function handleClick() {
         count++;
