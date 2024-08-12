@@ -37,6 +37,18 @@
             Clicked = true;
         }, 100); // Changed to 200ms for better visibility
     }
+
+    function formatCount(count) {
+        if (count >= 1e9) {
+            return (count / 1e9).toFixed(2) + "B";
+        } else if (count >= 1e6) {
+            return (count / 1e6).toFixed(2) + "M";
+        } else if (count >= 1e3) {
+            return (count / 1e3).toFixed(2) + "K";
+        } else {
+            return count.toFixed(0);
+        }
+    }
 </script>
 
 <!-- HTML structure for the animation -->
@@ -46,13 +58,16 @@
         class:active={Clicked}
         style="background-color: {bgColor};"
     >
-        <h1 class="text" style="color: {textColor};">{count}</h1>
+        <h1 class="text" style="color: {textColor};">{formatCount(count)}</h1>
     </div>
 </div>
 
 <!-- CSS for styling and animation -->
 <style>
     .stream-overlay {
+        position: fixed;
+        top: 50px;
+        left: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -61,13 +76,13 @@
     }
 
     .circle {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
     }
 
     .text {
