@@ -4,6 +4,7 @@
 ![Twitch](https://img.shields.io/badge/Twitch-9146FF?style=flat&logo=twitch&logoColor=white)
 
 Twitch Clicker is a fun and interactive clicker game built using SvelteKit. The game leverages the Twitch API to turn any chat message into a click, incrementing a counter that all viewers can see in real-time.
+
 To use this go to https://twitch-clicker.vercel.app/channel/yourchannelname Replace "yourchannelname" with the name of the channel you want to monitor. And voila! You have a click counter overlay for your twitch stream!
 
 
