@@ -9,6 +9,7 @@
     let count = 0;
     let bgColor = "black";
     let textColor = "white";
+    let filter = "";
 
     // Initialize the Twitch client
     const client = new tmi.Client({
@@ -17,12 +18,22 @@
 
     // Connect to the Twitch channel
     onMount(() => {
+        filter = prompt("Enter a filter (leave empty for no filter):") || "";
         client.connect().catch(console.error);
     });
 
     // Listen for messages in the Twitch chat
-    client.on("message", () => {
-        handleClick();
+    client.on("message", (channel, userstate, message, self) => {
+        if (self) return; // Ignore messages from the bot itself
+
+        if (
+            filter.toLowerCase() !== "" &&
+            message.toLowerCase() === filter.toLowerCase()
+        ) {
+            handleClick();
+        } else if (filter.toLowerCase() === "") {
+            handleClick();
+        }
     });
 
     // Error handling for connection issues
